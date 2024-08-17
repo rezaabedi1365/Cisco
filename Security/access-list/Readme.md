@@ -8,7 +8,7 @@ Create ACL.
 # Create Named ACL.
 (config) # ip access­-list standard {name}
 
-Attach ACL to an Interface.
+# Attach ACL to an Interface.
 (confi­g-if) # ip access­-group { access­-li­st-­number | access­-li­st-name } { in | out }
 ```
 
