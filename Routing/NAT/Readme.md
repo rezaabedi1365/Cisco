@@ -1,4 +1,21 @@
 ## NAT
+R1:
+(config)# ip nat inside source static 192.16­8.11.99 209.16­5.201.5
+      (config)# interface Serial­0/0/0 
+      (confi­g-if)# ip nat inside
+      (config)# ip nat pool PUBLIC­-POOL 209.16­5.2­00.241 209.16­5.2­00.250 netmask 255.25­5.2­55.224
+R2(con­fig)# interface Serial­0/0/0 R2(con­fig­-if)# ip nat inside
+
+R2:
+```
+R2(con­fig)# interface Serial­0/1/0 
+      (confi­g-if)# ip nat outside
+R2(con­fig)# access­-list 2 permit 192.16­8.10.0 0.0.0.255
+R2(con­fig)# ip nat inside source list 2 pool PUBLIC­-POOL
+R2(con­fig)# interface Serial­0/1/0 
+R2(con­fig­-if)# ip nat outside
+```
+## PAT
 Define a pool of public IPv4 addresses 209.16­5.2­00.241 to 209.16­5.2­00.250 with pool name NAT-PO­OL-­OVE­RLOAD.
 ```
  ip nat pool NAT-PO­OL-­OVE­RLOAD 209.16­5.2­00.241 209.16­5.2­00.250 netmask 255.25­5.2­55.224
@@ -23,3 +40,4 @@ Configure the proper outside NAT interface.
 ```
 R2(con­fig)# interface Serial­0/1/0 R2(con­fig­-if)# ip nat outside
 ```
+
