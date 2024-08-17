@@ -1,4 +1,4 @@
-
+## RIP
 ```
 (config) # router rip
 (confi­g-r­outer) #version 2
